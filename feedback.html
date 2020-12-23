@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+ <title>Feedback form</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width", initial-scale="1.0">
+ <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet"/>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+ <link rel="stylesheet" href="style.css"/>
+ <script src=""https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.js"></script>
+ <script type="text/javascript">
+   function validate() {
+   	var form = document.getElementById("form");
+   	var email = document.getElementById("textEmail").value;
+   	var textE = document.getElementById("textE");
+   	var pattern1 = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+   	var pattern2 = /^[^ ]+@[^ ]+\.[A-Z]{2,3}$/;
+   	
+   	if(email.match(pattern1)) {
+   		form.classList.add("valid");
+   		form.classList.remove("Invalid");
+   		textE.innerHTML = "Your Email is valid";
+   		textE.style.color= "#00ff00";
+   	}
+   	if(email.match(pattern2)) {
+   		form.classList.add("valid");
+   		form.classList.remove("Invalid");
+   		textE.innerHTML = "Your Email is valid";
+   		textE.style.color= "#00ff00";
+   	}
+   	else {
+   		form.classList.add("Invalid");
+   		form.classList.remove("valid");
+   		textE.innerHTML = "Please enter valid email address";
+   		textE.style.color= "#ff0000";
+   	}
+   		if(email == "") {
+   		form.classList.remove("valid");
+   		form.classList.remove("Invalid");
+   		textE.innerHTML = "";
+   		textE.style.color= "green";
+   	}
+   }
+ </script>
+ </head>
+ 
+ <body>
+ 
+ <div class="view">
+   <img src="1.png"/>
+ </div>
+ <div class="container">
+   <div class="row">
+     <div class="col-md-2"></div>
+     <div class="col-md-8">
+       <h1 class="text-center mt-5 font-weight-bold">Feedback</h1>
+       <hr class="bg-white"/>
+       <h6 class="text-center">Please Write Your Feedback Below:</h6>
+       <h3 class="mt-4">How do you rate your overall Experiance?</h3>
+       
+       <form id="form" action="#" method="post">
+         <label class="radio-inline"><input type="radio" name="experience" value="bad"/>Bad</label>
+         <label class="radio-inline"><input type="radio" name="experience" value="bad"/>Average</label>
+         <label class="radio-inline"><input type="radio" name="experience" value="bad"/>Good</label>
+       
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-md-2"></div>
+     <label class="col-md-4">Full name*<br>
+         <input type="text" id="text" required="" placeholder="Ashok sharma"/></label>
+         
+         <label class="col-md-4">Email*<br>
+         <input onchange="validate()" text" id="textEmail" required="" placeholder="Ashok50@gmail.com"/>
+         <div class="span"><span id="textE"></span></div></label>
+   </div>
+   
+   <div class="row">
+     <div class="col-md-2"></div>
+     <label class="col-md-4">Age*<br>
+         <input type="number" id="num" required="" placeholder="25"/></label>
+         
+         <label class="col-md-4">Phone*<br>
+         <input type="text" id="text" required="" placeholder="+91-1234567890"/></label>
+   </div>
+   <div class="row">
+     <div class="col-md-2"></div>
+     <label class="col-md-8">Massage*<br>
+         <textarea id="massage" required="" placeholder="Write your massage here" cols="48" rows="5"/></textarea></label>
+   </div>
+   <div class="row">
+     <div class="col-md-2"></div>
+     <button class="btn btn-primary" style="width :53.5%; position:absolute; margin-left:15%;">Submit</button>
+     </div>
+   </form>
+ </div>
+ 
+ </body>
+ </html>
